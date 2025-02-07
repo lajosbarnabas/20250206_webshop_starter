@@ -6,14 +6,14 @@ export const authGuard: CanActivateFn = (route, state) => {
   let authService = inject(AuthService);
 
   if(route.routeConfig?.path === 'admin'){
-    if(authService.loggedInUser.roles.includes('admin')){
+    if(authService.loggedInUser?.roles.includes('admin')){
       return true;
     }
     return false;
   }
 
   if(route.routeConfig?.path === 'orders'){
-    if(authService.loggedInUser.roles.includes('user')){
+    if(authService.loggedInUser?.roles.includes('user')){
       return true;
     }
     return false;
