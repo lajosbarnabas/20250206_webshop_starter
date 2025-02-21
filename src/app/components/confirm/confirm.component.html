@@ -1,0 +1,14 @@
+<div class="background" [style]="{'z-index': (maxZIndex + 1).toString()}">
+</div>
+
+<div class="container" [style]="{'z-index': (maxZIndex + 2).toString()}">
+  <div class="form-container">
+    <div class="close-btn" (click)="cancelClick()">X</div>
+    <h2>Megerősítés</h2>
+    <div class="message" [innerHTML]="confirmHTML"></div>
+    <div class="buttons">
+      <button type="button" class="btn-cancel" (click)="cancelClick()">Nem</button>
+      <button type="button" class="btn-confirm" (click)="okClick()">Igen</button>
+    </div>
+  </div>
+</div>

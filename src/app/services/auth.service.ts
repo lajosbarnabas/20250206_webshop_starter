@@ -31,6 +31,16 @@ export class AuthService {
     this.http.post(this.config.apiUrl + '/auth/logout', {}).subscribe();
   }
 
+  register(name: string, email: string, password: string){
+    return this.http.post<UserModel>(this.config.apiUrl + '/auth/registration', {name, email, password}).pipe(
+      map((response: UserModel) =>{
+        this.loggedInUser = response;
+        localStorage.setItem('loggedInUser', JSON.stringify(response));
+        return true;
+      })
+    )
+  }
+
   checkUser(){
     const user = localStorage.getItem('loggedInUser');
     if(user){

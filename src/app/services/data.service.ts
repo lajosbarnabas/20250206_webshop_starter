@@ -28,6 +28,19 @@ export class DataService {
     )
   }
 
+  saveProduct(product: ProductModel){
+    if(product.id){
+      return this.http.put<ProductModel>(this.config.apiUrl + '/product/' + product.id, product);
+    }
+    else{
+      return this.http.post<ProductModel>(this.config.apiUrl + '/product', product);
+    }
+  }
+
+  deleteProduct(productId: number){
+      return this.http.delete(this.config.apiUrl + '/product/' + productId, );
+  }
+
   getOrders(){
     return this.http.get<OrderModel[]>(`${this.config.apiUrl}/order`);
 

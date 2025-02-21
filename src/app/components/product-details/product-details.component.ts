@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProductModel } from '../../models/product.model';
 import { FormsModule } from '@angular/forms';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-product-details',
@@ -23,14 +24,21 @@ export class ProductDetailsComponent {
   @Output() saved = new EventEmitter<ProductModel>();
   errorMessage: string = '';
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
   save(){
     if(!this.product.name || !this.product.price || this.product.description){
       this.errorMessage = 'A név, az ár, a termék leírás és a kép megadása kötelező!';
       return;
     }
-    this.saved.emit(this.product);
+    this.dataService.saveProduct(this.product).subscribe({
+      next: (response) => {
+        this.saved.emit(response);
+      },
+      error: (error) => {
+        this.errorMessage = error.error.message ?? error.message ?? "A mentés során hiba történt!";
+      }
+    })
   }
 
   cancel(){

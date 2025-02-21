@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="login-container">
+        <h2>Bejelentkezés</h2>
+        <input type="name" name="name" id="name" placeholder="Név" [(ngModel)]="model.name">
+        <input type="email" name="email" id="email" placeholder="Email" [(ngModel)]="model.email">
+        <input type="password" name="password" id="password" placeholder="Jelszó" [(ngModel)]="model.password">
+        <button (click)="register()">Belépés</button>
+        @if(errorMessage){
+          <div class="error-message" id="error-msg">{{errorMessage}}</div>
+        }
+    </div>
+</div>

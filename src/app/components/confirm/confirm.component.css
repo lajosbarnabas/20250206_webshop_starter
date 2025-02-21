@@ -1,0 +1,71 @@
+.container {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100%;
+}
+
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 600px;
+    text-align: center;
+    margin: 12px auto;
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: black;
+    opacity: 0.5;
+}
+
+div.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    width: 120px;
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 20px;
+    color: white;
+}
+
+button:hover {
+    background: rgb(0, 118, 209);
+    color: white;
+}
+
+button.btn-cancel {
+    background-color: rgb(212, 54, 54);
+}
+
+button.btn-confirm {
+    background-color: rgb(38, 113, 68);
+}
+
+div.close-btn {
+    margin-top: -12px;
+    margin-bottom: -30px;
+    text-align: right;
+    color: #777;
+    font-family: arial;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+
+    .form-container {
+        width: calc(100% - 60px);
+    }
+}

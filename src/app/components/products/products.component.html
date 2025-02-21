@@ -1,10 +1,10 @@
 <div class="container">
     @for (product of products; track $index) {
     <div class="card">
-        <h3>{{product.name}}</h3>
+        <h3>{{product.name | uppercase }}</h3>
         <img [src]="product.imageUrl">
         <p>{{product.description}}</p>
-        <div class="price">{{product.price}}</div>
+        <div class="price">{{product.price | forint}}</div>
         <button class="cart-btn" (click)="order(product.id)">Megrendelés</button>
     </div>
     }

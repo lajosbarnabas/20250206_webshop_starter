@@ -6,7 +6,10 @@
         <a routerLink="admin" routerLinkActive="selected">Admin</a>
     </div>
     @if (!authService.loggedInUser) {
-        <a routerLink="login" routerLinkActive="selected">Login</a>
+        <div>
+            <a routerLink="register" routerLinkActive="selected">Regisztráció</a>
+            <a routerLink="login" routerLinkActive="selected">Login</a>
+        </div>
     } @else
     {
         <div class="user-menu" onclick="toggleDropdown()">
